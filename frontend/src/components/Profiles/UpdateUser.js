@@ -23,7 +23,10 @@ import { getUserDetails, updateUser } from "../../api-helpers/api-helpers";
     useEffect(() => {
 
       getUserDetails()
-        .then((res) => setInputs(res.user,res.email))
+        .then((res) => {
+          // console.log(res)
+          setInputs(res)
+    })
         .catch((err) => console.log(err));
     }, []);
     

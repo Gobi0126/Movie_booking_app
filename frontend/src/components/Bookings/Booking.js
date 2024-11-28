@@ -27,11 +27,10 @@ const navigate=useNavigate();
     e.preventDefault();
     console.log(inputs);
     newBooking({ ...inputs, movie: movie._id })
-      .then((res) =>{ 
-                    navigate("/user")
-                    console.log(res)
-
-                    })
+      .then((res) => { 
+        navigate("/user")
+        console.log(res)
+      })
       .catch((err) => console.log(err));
   };
   return (

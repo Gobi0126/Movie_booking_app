@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { adminLogin, sendAuthRequest } from "../../helpers/api-helpers";
 import { useDispatch } from "react-redux";
 import { adminActions } from "../../store/admin-slice";
@@ -17,12 +17,12 @@ const labelSx = { marginRight: "auto", mt: 1, mb: 1 };
 const AdminAuth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(true);
+  // const [open, setOpen] = useState(true);
   const [inputs, setInputs] = useState({ email: "", password: "" });
-  const onClose = () => {
-    setOpen(false);
-    navigate("/");
-  };
+  // const onClose = () => {
+  //   setOpen(false);
+  //   navigate("/");
+  // };
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -34,7 +34,7 @@ const AdminAuth = () => {
     localStorage.setItem("adminId", val.id);
     localStorage.setItem("token", val.token);
     dispatch(adminActions.login());
-    setOpen(false);
+    // setOpen(false);
     navigate("/");
   };
   const handleSubmit = (e) => {
@@ -47,9 +47,9 @@ const AdminAuth = () => {
   };
 
   return (
-    <Dialog PaperProps={{ style: { borderRadius: 20 } }} open={open}>
+    <Dialog PaperProps={{ style: { borderRadius: 20 } }} open={true}>
       <Box sx={{ marginLeft: "auto", padding: 1 }}>
-        <IconButton onClick={onClose}>
+        <IconButton Link={Link} to="/">
           <CloseRoundedIcon />
         </IconButton>
       </Box>

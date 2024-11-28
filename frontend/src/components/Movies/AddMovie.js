@@ -36,7 +36,8 @@ const AddMovie = () => {
     addMovie({ ...inputs, actors })
       .then((res) => {
         navigate("/movies")
-        console.log(res)})
+        console.log(res)
+      })
       .catch((err) => console.log(err));
   };
   return (

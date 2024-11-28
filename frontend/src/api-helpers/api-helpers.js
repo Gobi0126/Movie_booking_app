@@ -50,7 +50,7 @@ export const getMovieDetails = async (id) => {
   return resData;
 };
 
-export const newBooking = async (data) => {
+export const newBooking = async(data) => {
   const res = await axios
     .post("/booking", {
       movie: data.movie,
@@ -99,8 +99,7 @@ export const getUserDetails = async () => {
   if (res.status !== 200) {
     return console.log("Unexpected Error");
   }
-  const resData = await res.data;
-  return resData;
+  return res.data;
 };
 
 export const addMovie = async (data) => {
@@ -180,7 +179,6 @@ export const updateUser = async (data) => {
 export const sendAdmin = async (data) => {
   const res = await axios
     .post("/admin/signup", {
-      name: data.name,
       email: data.email,
       password: data.password,
     })
